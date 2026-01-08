@@ -403,12 +403,21 @@
       margin-top: 1.5rem;
     }
     
-    .testimonial-author img {
+    .testimonial-author-img {
       width: 50px;
       height: 50px;
       border-radius: 50%;
       margin-right: 1rem;
-      object-fit: cover;
+      background-color: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-light);
+    }
+    
+    .testimonial-author-img i {
+      color: var(--primary-color);
+      font-size: 1.5rem;
     }
     
     .testimonial-author h5 {
@@ -417,6 +426,12 @@
     
     .testimonial-author span {
       color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-stars {
+      color: #FFD700;
+      margin-top: 0.3rem;
       font-size: 0.9rem;
     }
     
@@ -669,6 +684,18 @@
       text-align: center !important;
     }
     
+    /* Note aggiuntive */
+    .menu-note {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    
+    .menu-note i {
+      color: var(--primary-color);
+    }
+    
     /* Responsive */
     @media (max-width: 992px) {
       h1 {
@@ -685,6 +712,10 @@
       
       section {
         padding: 4rem 0;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
     }
     
@@ -714,7 +745,7 @@
       }
       
       .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       }
     }
     
@@ -742,6 +773,10 @@
       
       .menu-card {
         padding: 1.5rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -787,8 +822,8 @@
       <h1 class="animate__animated animate__fadeInUp">Pizzeria Il Semaforo</h1>
       <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Un'esperienza autentica di sapori tradizionali nel cuore di Campi Bisenzio</p>
       <div class="animate__animated animate__fadeInUp animate__delay-2s">
-        <a href="#menu" class="btn btn-primary me-3">Scopri il Menù</a>
-        <a href="#contact" class="btn btn-outline-primary">Prenota un Tavolo</a>
+        <!-- SOLO IL PULSANTE PRENOTA UN TAVOLO - NESSUNA MENZIONE DEL MENÙ -->
+        <a href="#contact" class="btn btn-primary">Prenota un Tavolo</a>
       </div>
     </div>
   </div>
@@ -831,7 +866,7 @@
       <div class="hours-highlight">
         <i class="fas fa-tag me-2"></i> Menù Fisso 20€
       </div>
-      <p class="text-light">Include antipasto, giro pizza no stop, dolce a scelta e bibita piccola (33cl)</p>
+      <p class="text-light">Include antipasto, giro pizza no stop, dolce a scelta e <strong>una bibita piccola (33cl)</strong></p>
     </div>
   </div>
 </section>
@@ -905,8 +940,11 @@
             <div class="menu-item-title">Bibite (33cl)</div>
             <div class="menu-item-description">Coca-Cola, Fanta, Sprite, Acqua Naturale/Frizzante</div>
           </div>
-          <div class="menu-item-price">Incluse</div>
+          <div class="menu-item-price">1 inclusa*</div>
         </div>
+        <p class="menu-note">
+          <i class="fas fa-asterisk text-primary me-1"></i> Il menù fisso include una bibita piccola (33cl) a persona. Bevande extra sono al di fuori del prezzo fisso.
+        </p>
       </div>
       
       <div class="text-center mt-5">
@@ -926,7 +964,7 @@
       <p class="lead">Immagini dal nostro locale</p>
     </div>
     <div class="gallery-grid">
-      <!-- Le immagini da 1.jpg a 10.jpg -->
+      <!-- Tutte le 10 foto della galleria -->
       <div class="gallery-item">
         <img src="1.jpg" alt="Interno Pizzeria Il Semaforo">
         <div class="gallery-overlay">
@@ -963,6 +1001,30 @@
           <h5 class="mb-0">Tradizione italiana</h5>
         </div>
       </div>
+      <div class="gallery-item">
+        <img src="7.jpg" alt="Musica dal vivo">
+        <div class="gallery-overlay">
+          <h5 class="mb-0">Serate con musica dal vivo</h5>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="8.jpg" alt="Forno a legna">
+        <div class="gallery-overlay">
+          <h5 class="mb-0">Forno a legna tradizionale</h5>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="9.jpg" alt="Ingredienti freschi">
+        <div class="gallery-overlay">
+          <h5 class="mb-0">Ingredienti di qualità</h5>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="10.jpg" alt="Eventi speciali">
+        <div class="gallery-overlay">
+          <h5 class="mb-0">Eventi e serate speciali</h5>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -977,61 +1039,151 @@
     
     <div class="swiper testimonialsSwiper">
       <div class="swiper-wrapper">
+        <!-- Recensione 1: Valentina -->
         <div class="swiper-slide">
           <div class="testimonial-card">
             <div class="testimonial-text">
-              La pizza più buona che abbia mai mangiato! Ingredienti freschissimi e impasto perfetto. Il personale è super cordiale e l'atmosfera è davvero accogliente.
+              Cibo e accoglienza meravigliosi..sembra di essere all'interno della loro famiglia quando sei lì.. Un ultimo dell'anno strepitoso, con la possibilità di scelta tra 2 menù, uno di terra e uno di mare, assaggiati entrambi e perfetti! Complimenti davvero!
             </div>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Giulia Rossi">
-              <div>
-                <h5 class="mb-0">Giulia Rossi</h5>
-                <span>Cliente abituale</span>
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="swiper-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-text">
-              Servizio eccellente e pizze spettacolari! Siamo venuti per la prima volta su consiglio di un amico e ora siamo clienti fissi. Il giro pizza no stop è fantastico!
-            </div>
-            <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Marco Bianchi">
               <div>
-                <h5 class="mb-0">Marco Bianchi</h5>
+                <h5 class="mb-0">Valentina</h5>
                 <span>Cliente</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
+        <!-- Recensione 2: Yuran -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              Pizzeria davvero interessante, soprattutto per il rapporto qualità-prezzo. Con 10€ si ha pizza illimitata, coperto e acqua inclusi, cosa ormai rarissima e decisamente apprezzabile. La pizza è abbastanza buona: non la migliore mai mangiata, ma più che soddisfacente considerando la formula all you can eat e il prezzo.
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h5 class="mb-0">Yuran</h5>
+                <span>Cliente</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recensione 3: Roberto -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              Serata tra amici in questo locale accogliente, dove abbiamo mangiato bene in tranquillità. Lo consiglio.
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h5 class="mb-0">Roberto</h5>
+                <span>Cliente</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recensione 4: Alessio -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              Locale con musica dal vivo il Venerdì e Domenica, con karaoke. Ottimo il cibo, dagli antipasti, primi e pizza a volontà. Prezzo modico.
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h5 class="mb-0">Alessio</h5>
+                <span>Cliente abituale</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recensione 5: Originale 1 -->
         <div class="swiper-slide">
           <div class="testimonial-card">
             <div class="testimonial-text">
               Locale accogliente e personale gentilissimo. La pizza è davvero top e il rapporto qualità-prezzo è ottimo. Consigliatissimo per una serata diversa!
             </div>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Laura Verdi">
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
+              </div>
               <div>
                 <h5 class="mb-0">Laura Verdi</h5>
                 <span>Cliente</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
+        <!-- Recensione 6: Originale 2 -->
         <div class="swiper-slide">
           <div class="testimonial-card">
             <div class="testimonial-text">
               Ottimi ingredienti e grande attenzione ai dettagli. Si vede la passione che mettono nel loro lavoro. Il menù fisso a 20€ è una vera occasione!
             </div>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Francesco Neri">
+              <div class="testimonial-author-img">
+                <i class="fas fa-user"></i>
+              </div>
               <div>
                 <h5 class="mb-0">Francesco Neri</h5>
                 <span>Food Blogger</span>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -1071,9 +1223,15 @@
                 <strong>Orari:</strong><br>
                 Gio-Dom: 19:00 - 23:00
               </p>
+              <p class="mb-3">
+                <i class="fas fa-music text-primary me-3"></i>
+                <strong>Musica dal vivo:</strong><br>
+                Venerdì e Domenica con karaoke
+              </p>
               <p class="mb-0">
                 <i class="fas fa-euro-sign text-primary me-3"></i>
-                <strong>Menù Fisso:</strong> 20€
+                <strong>Menù Fisso:</strong> 20€<br>
+                <small class="text-muted">(include una bibita piccola a persona)</small>
               </p>
             </div>
             
@@ -1142,6 +1300,10 @@
           <li>
             <i class="fas fa-clock"></i>
             Gio-Dom: 19:00 - 23:00
+          </li>
+          <li>
+            <i class="fas fa-music"></i>
+            Musica dal vivo: Venerdì e Domenica
           </li>
         </ul>
       </div>
@@ -1326,7 +1488,15 @@
       doc.setTextColor(0, 0, 0);
       doc.text('Bibite (33cl): Coca-Cola, Fanta, Sprite, Acqua Naturale/Frizzante', 20, yPos);
       yPos += 7;
-      doc.text('Incluse nel menù fisso a 20€', 20, yPos);
+      doc.text('1 inclusa nel menù fisso a 20€*', 20, yPos);
+      yPos += 10;
+      
+      // Nota
+      doc.setFontSize(9);
+      doc.setTextColor(150, 150, 150);
+      doc.text('* Il menù fisso include una bibita piccola (33cl) a persona.', 20, yPos);
+      yPos += 5;
+      doc.text('Bevande extra sono al di fuori del prezzo fisso.', 20, yPos);
       
       // Footer
       doc.setFontSize(10);
