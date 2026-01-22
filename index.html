@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pizzeria Il Semaforo | Tradizione e Innovazione a Campi Bisenzio</title>
   <meta name="description" content="Scopri la vera pizza italiana a Campi Bisenzio. Pizzeria Il Semaforo: ingredienti selezionati, impasto tradizionale e atmosfera accogliente.">
+  <meta name="keywords" content="pizza, Campi Bisenzio, ristorante, pizzeria, Il Semaforo, pizza a volontà">
+  <meta name="author" content="Pizzeria Il Semaforo">
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="logo1.jpg">
@@ -904,31 +906,31 @@
           <div class="menu-item-content">
             <div class="menu-item-title">Tiramisù Classico</div>
           </div>
-          <div class="menu-item-price">-</div>
+          <div class="menu-item-price">€ 3,00</div>
         </div>
         <div class="menu-item">
           <div class="menu-item-content">
             <div class="menu-item-title">Panna Cotta ai Frutti di Bosco</div>
           </div>
-          <div class="menu-item-price">-</div>
+          <div class="menu-item-price">€ 3,00</div>
         </div>
         <div class="menu-item">
           <div class="menu-item-content">
             <div class="menu-item-title">Torta della Nonna</div>
           </div>
-          <div class="menu-item-price">-</div>
+          <div class="menu-item-price">€ 3,00</div>
         </div>
         <div class="menu-item">
           <div class="menu-item-content">
             <div class="menu-item-title">Cheesecake ai Frutti di Bosco</div>
           </div>
-          <div class="menu-item-price">-</div>
+          <div class="menu-item-price">€ 3,00</div>
         </div>
         <div class="menu-item">
           <div class="menu-item-content">
             <div class="menu-item-title">Sorbetto al Limone</div>
           </div>
-          <div class="menu-item-price">-</div>
+          <div class="menu-item-price">€ 3,00</div>
         </div>
       </div>
       
@@ -965,34 +967,34 @@
     <div class="gallery-grid">
       <!-- Tutte le 10 foto della galleria -->
       <div class="gallery-item">
-        <img src="1.jpg" alt="Interno Pizzeria Il Semaforo">
+        <img src="1.jpg" alt="Interno Pizzeria Il Semaforo" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="2.jpg" alt="Pizze appena sfornate">
+        <img src="2.jpg" alt="Pizze appena sfornate" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="3.jpg" alt="Antipasti della casa">
+        <img src="3.jpg" alt="Antipasti della casa" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="4.jpg" alt="Ambiente accogliente">
+        <img src="4.jpg" alt="Ambiente accogliente" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="5.jpg" alt="Dolci fatti in casa">
+        <img src="5.jpg" alt="Dolci fatti in casa" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="6.jpg" alt="Pizza margherita">
+        <img src="6.jpg" alt="Pizza margherita" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="7.jpg" alt="Musica dal vivo">
+        <img src="7.jpg" alt="Musica dal vivo" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="8.jpg" alt="Forno a legna">
+        <img src="8.jpg" alt="Forno a legna" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="9.jpg" alt="Ingredienti freschi">
+        <img src="9.jpg" alt="Ingredienti freschi" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="10.jpg" alt="Eventi speciali">
+        <img src="10.jpg" alt="Eventi speciali" loading="lazy">
       </div>
     </div>
   </div>
@@ -1358,129 +1360,310 @@
     });
   });
 
-  // Funzione per scaricare il PDF del menù
+  // Funzione per scaricare il PDF del menù in formato libro
   function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    
-    // Aggiungi logo
-    const logo = new Image();
-    logo.src = 'logo1.jpg';
-    
-    logo.onload = function() {
-      // Titolo
-      doc.setFontSize(24);
-      doc.setTextColor(198, 40, 40);
-      doc.text('Menù Pizzeria Il Semaforo', 105, 25, { align: 'center' });
-      
-      // Logo
-      doc.addImage(logo, 'JPEG', 85, 35, 40, 40);
-      
-      // Contatti
-      doc.setFontSize(10);
-      doc.setTextColor(100, 100, 100);
-      doc.text('Via Palagetta, 50013 Campi Bisenzio (FI)', 105, 85, { align: 'center' });
-      doc.text('Tel: +39 340 304 6310', 105, 90, { align: 'center' });
-      
-      // Linea divisoria
-      doc.setDrawColor(198, 40, 40);
-      doc.line(20, 100, 190, 100);
-      
-      let yPos = 110;
-      
-      // Antipasti
-      doc.setFontSize(16);
-      doc.setTextColor(198, 40, 40);
-      doc.text('ANTIPASTI', 20, yPos);
-      yPos += 10;
-      
-      doc.setFontSize(12);
-      doc.setTextColor(0, 0, 0);
-      doc.text('Antipasto della Casa', 20, yPos);
-      yPos += 7;
-      
-      doc.setFontSize(10);
-      doc.setTextColor(100, 100, 100);
-      doc.text('Una selezione dei migliori salumi toscani accompagnati da schiacciata', 20, yPos);
-      yPos += 5;
-      doc.text('calda appena sfornata e verdure sott\'olio', 20, yPos);
-      yPos += 15;
-      
-      // Pizze
-      doc.setFontSize(16);
-      doc.setTextColor(198, 40, 40);
-      doc.text('PIZZE', 20, yPos);
-      yPos += 10;
-      
-      doc.setFontSize(12);
-      doc.setTextColor(0, 0, 0);
-      doc.text('Giro Pizza No Stop', 20, yPos);
-      yPos += 7;
-      
-      doc.setFontSize(10);
-      doc.setTextColor(100, 100, 100);
-      doc.text('Un viaggio attraverso i sapori della nostra tradizione. Richiedi al', 20, yPos);
-      yPos += 5;
-      doc.text('cameriere i gusti e crea la tua selezione personalizzata', 20, yPos);
-      yPos += 15;
-      
-      // Dolci
-      doc.setFontSize(16);
-      doc.setTextColor(198, 40, 40);
-      doc.text('DOLCI', 20, yPos);
-      yPos += 10;
-      
-      const desserts = [
-        'Tiramisù Classico',
-        'Panna Cotta ai Frutti di Bosco',
-        'Torta della Nonna',
-        'Cheesecake ai Frutti di Bosco',
-        'Sorbetto al Limone'
-      ];
-      
-      doc.setFontSize(11);
-      doc.setTextColor(0, 0, 0);
-      desserts.forEach(dessert => {
-        doc.text('• ' + dessert, 20, yPos);
-        yPos += 7;
+    if(confirm('Vuoi scaricare il menù in formato PDF?')) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
       });
       
-      yPos += 10;
+      const pageWidth = doc.internal.pageSize.width;
+      const pageHeight = doc.internal.pageSize.height;
+      const margin = 20;
+      const contentWidth = pageWidth - 2 * margin;
       
-      // Bevande
-      doc.setFontSize(16);
-      doc.setTextColor(198, 40, 40);
-      doc.text('BEVANDE', 20, yPos);
-      yPos += 10;
+      // Funzione per aggiungere una pagina
+      function addNewPage() {
+        doc.addPage();
+        currentPage++;
+        yPos = margin;
+      }
       
-      doc.setFontSize(11);
-      doc.setTextColor(0, 0, 0);
-      doc.text('Bibite (33cl): Coca-Cola, Fanta, Sprite, Acqua Naturale/Frizzante', 20, yPos);
-      yPos += 7;
-      doc.text('1 inclusa nel menù fisso a 20€*', 20, yPos);
-      yPos += 10;
+      // Controllo pagina corrente
+      let currentPage = 1;
+      let yPos = margin;
       
-      // Nota
-      doc.setFontSize(9);
-      doc.setTextColor(150, 150, 150);
-      doc.text('* Il menù fisso include una bibita piccola (33cl) a persona.', 20, yPos);
-      yPos += 5;
-      doc.text('Bevande extra sono al di fuori del prezzo fisso.', 20, yPos);
+      // Copertina
+      // Logo
+      const logo = new Image();
+      logo.src = 'logo1.jpg';
       
-      // Footer
-      doc.setFontSize(10);
-      doc.setTextColor(150, 150, 150);
-      doc.text('www.pizzeriailsemaforo.it', 105, 280, { align: 'center' });
+      logo.onload = function() {
+        // Sfondo copertina
+        doc.setFillColor(198, 40, 40);
+        doc.rect(0, 0, pageWidth, pageHeight, 'F');
+        
+        // Logo al centro
+        const logoWidth = 60;
+        const logoHeight = 60;
+        const logoX = (pageWidth - logoWidth) / 2;
+        const logoY = 50;
+        doc.addImage(logo, 'JPEG', logoX, logoY, logoWidth, logoHeight);
+        
+        // Titolo
+        doc.setFontSize(32);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.text('MENÙ', pageWidth / 2, logoY + logoHeight + 30, { align: 'center' });
+        
+        doc.setFontSize(24);
+        doc.text('Pizzeria Il Semaforo', pageWidth / 2, logoY + logoHeight + 50, { align: 'center' });
+        
+        // Sottotitolo
+        doc.setFontSize(16);
+        doc.setTextColor(255, 255, 255, 0.8);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Tradizione e Qualità dal 2023', pageWidth / 2, logoY + logoHeight + 70, { align: 'center' });
+        
+        // Informazioni
+        doc.setFontSize(12);
+        doc.text('Via Palagetta, 50013 Campi Bisenzio (FI)', pageWidth / 2, pageHeight - 60, { align: 'center' });
+        doc.text('Tel: +39 340 304 6310', pageWidth / 2, pageHeight - 50, { align: 'center' });
+        doc.text('www.pizzeriailsemaforo.it', pageWidth / 2, pageHeight - 40, { align: 'center' });
+        
+        // Pagina 2: Menù
+        addNewPage();
+        
+        // Header pagina
+        doc.setFillColor(240, 240, 240);
+        doc.rect(0, 0, pageWidth, 40, 'F');
+        
+        // Numero pagina
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Pagina ${currentPage}`, pageWidth - margin, 15);
+        
+        // Titolo menù
+        doc.setFontSize(28);
+        doc.setTextColor(198, 40, 40);
+        doc.setFont('helvetica', 'bold');
+        doc.text('IL NOSTRO MENÙ', margin, 30);
+        
+        // Linea divisoria
+        doc.setDrawColor(198, 40, 40);
+        doc.setLineWidth(2);
+        doc.line(margin, 35, pageWidth - margin, 35);
+        
+        yPos = 50;
+        
+        // Sezione 1: Menù Fisso
+        doc.setFontSize(20);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text('MENÙ FISSO - 20€', margin, yPos);
+        yPos += 15;
+        
+        doc.setFontSize(12);
+        doc.setTextColor(100, 100, 100);
+        doc.setFont('helvetica', 'normal');
+        const fixedMenu = [
+          '• Antipasto della Casa',
+          '• Giro Pizza No Stop',
+          '• Una bibita piccola (33cl) a persona'
+        ];
+        
+        fixedMenu.forEach(item => {
+          if (yPos > pageHeight - margin) {
+            addNewPage();
+            yPos = margin + 30;
+          }
+          doc.text(item, margin + 5, yPos);
+          yPos += 8;
+        });
+        
+        yPos += 15;
+        
+        // Sezione 2: Dettagli
+        if (yPos > pageHeight - 50) {
+          addNewPage();
+          yPos = margin + 30;
+        }
+        
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text('DETTAGLI', margin, yPos);
+        yPos += 12;
+        
+        doc.setFontSize(11);
+        doc.setTextColor(100, 100, 100);
+        doc.setFont('helvetica', 'normal');
+        
+        const details = [
+          'Antipasto della Casa: Una selezione dei migliori salumi toscani',
+          'accompagnati da schiacciata calda appena sfornata e verdure sott\'olio.',
+          '',
+          'Giro Pizza No Stop: Un viaggio attraverso i sapori della nostra',
+          'tradizione. Richiedi al cameriere i gusti disponibili.',
+          '',
+          'Bevande incluse: Coca-Cola, Fanta, Sprite, Acqua Naturale/Frizzante (33cl)'
+        ];
+        
+        details.forEach(line => {
+          if (yPos > pageHeight - margin) {
+            addNewPage();
+            yPos = margin + 30;
+          }
+          doc.text(line, margin, yPos);
+          yPos += 7;
+        });
+        
+        // Pagina 3: Dolci
+        addNewPage();
+        
+        // Header pagina
+        doc.setFillColor(240, 240, 240);
+        doc.rect(0, 0, pageWidth, 40, 'F');
+        
+        // Numero pagina
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Pagina ${currentPage}`, pageWidth - margin, 15);
+        
+        // Titolo dolci
+        doc.setFontSize(28);
+        doc.setTextColor(198, 40, 40);
+        doc.setFont('helvetica', 'bold');
+        doc.text('I NOSTRI DOLCI', margin, 30);
+        
+        // Linea divisoria
+        doc.setDrawColor(198, 40, 40);
+        doc.setLineWidth(2);
+        doc.line(margin, 35, pageWidth - margin, 35);
+        
+        yPos = 50;
+        
+        // Dolci con prezzi - TUTTI A €3,00
+        const desserts = [
+          { name: 'Tiramisù Classico', price: '€ 3,00' },
+          { name: 'Panna Cotta ai Frutti di Bosco', price: '€ 3,00' },
+          { name: 'Torta della Nonna', price: '€ 3,00' },
+          { name: 'Cheesecake ai Frutti di Bosco', price: '€ 3,00' },
+          { name: 'Sorbetto al Limone', price: '€ 3,00' }
+        ];
+        
+        desserts.forEach((dessert, index) => {
+          if (yPos > pageHeight - margin) {
+            addNewPage();
+            yPos = margin + 30;
+          }
+          
+          // Rettangolo per ogni dolce
+          const itemHeight = 25;
+          const isEven = index % 2 === 0;
+          
+          if (isEven) {
+            doc.setFillColor(250, 250, 250);
+          } else {
+            doc.setFillColor(255, 255, 255);
+          }
+          
+          doc.rect(margin, yPos - 8, contentWidth, itemHeight, 'F');
+          
+          // Nome dolce
+          doc.setFontSize(14);
+          doc.setTextColor(0, 0, 0);
+          doc.setFont('helvetica', 'bold');
+          doc.text(dessert.name, margin + 10, yPos);
+          
+          // Prezzo - TUTTI €3,00
+          doc.setFontSize(16);
+          doc.setTextColor(198, 40, 40);
+          doc.text(dessert.price, pageWidth - margin - 20, yPos, { align: 'right' });
+          
+          // Linea divisoria
+          doc.setDrawColor(220, 220, 220);
+          doc.setLineWidth(0.5);
+          doc.line(margin, yPos + itemHeight - 8, pageWidth - margin, yPos + itemHeight - 8);
+          
+          yPos += itemHeight;
+        });
+        
+        yPos += 15;
+        
+        // Nota
+        if (yPos > pageHeight - 30) {
+          addNewPage();
+          yPos = margin + 30;
+        }
+        
+        doc.setFontSize(10);
+        doc.setTextColor(150, 150, 150);
+        doc.setFont('helvetica', 'italic');
+        doc.text('* Tutti i dolci al prezzo speciale di € 3,00 ciascuno', margin, yPos);
+        yPos += 6;
+        doc.text('* I dolci non sono inclusi nel menù fisso di 20€', margin, yPos);
+        yPos += 6;
+        doc.text('** Prezzi possono subire variazioni', margin, yPos);
+        
+        // Pagina 4: Informazioni e contatti
+        addNewPage();
+        
+        // Sfondo rosso per ultima pagina
+        doc.setFillColor(198, 40, 40);
+        doc.rect(0, 0, pageWidth, pageHeight, 'F');
+        
+        // Titolo
+        doc.setFontSize(28);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.text('INFORMAZIONI', pageWidth / 2, 60, { align: 'center' });
+        
+        // Linea divisoria bianca
+        doc.setDrawColor(255, 255, 255);
+        doc.setLineWidth(1);
+        doc.line(margin, 70, pageWidth - margin, 70);
+        
+        yPos = 90;
+        
+        // Informazioni di contatto
+        const contactInfo = [
+          { icon: '📍', text: 'Via Palagetta, 50013 Campi Bisenzio (FI)' },
+          { icon: '📞', text: '+39 340 304 6310' },
+          { icon: '✉️', text: 'ilsemaforo.pizzeria@gmail.com' },
+          { icon: '🕒', text: 'Giovedì - Domenica: 19:00 - 23:00' },
+          { icon: '🎵', text: 'Musica dal vivo: Venerdì e Domenica' },
+          { icon: '💰', text: 'Menù Fisso: 20€ (bibita inclusa)' }
+        ];
+        
+        doc.setFontSize(14);
+        contactInfo.forEach(info => {
+          doc.text(info.icon + ' ' + info.text, pageWidth / 2, yPos, { align: 'center' });
+          yPos += 15;
+        });
+        
+        yPos += 20;
+        
+        // Social media
+        doc.setFontSize(16);
+        doc.text('Seguici sui social:', pageWidth / 2, yPos, { align: 'center' });
+        yPos += 15;
+        
+        doc.setFontSize(14);
+        doc.text('Facebook | Instagram | TikTok', pageWidth / 2, yPos, { align: 'center' });
+        
+        // Footer
+        doc.setFontSize(10);
+        doc.setTextColor(255, 255, 255, 0.7);
+        doc.text('P.IVA: 07270540482', pageWidth / 2, pageHeight - 30, { align: 'center' });
+        doc.text('www.pizzeriailsemaforo.it', pageWidth / 2, pageHeight - 20, { align: 'center' });
+        doc.text(`Menu aggiornato al ${new Date().toLocaleDateString('it-IT')}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
+        
+        // Salva il PDF
+        doc.save(`menu-pizzeria-il-semaforo-${new Date().toISOString().split('T')[0]}.pdf`);
+      };
       
-      // Salva il PDF
-      doc.save('menu-pizzeria-il-semaforo.pdf');
-    };
-    
-    logo.onerror = function() {
-      // Se il logo non carica, genera comunque il PDF
-      doc.text('Errore nel caricamento del logo, PDF generato senza immagine', 20, 20);
-      doc.save('menu-pizzeria-il-semaforo.pdf');
-    };
+      logo.onerror = function() {
+        // Se il logo non carica, usa testo alternativo
+        doc.setFontSize(24);
+        doc.setTextColor(198, 40, 40);
+        doc.text('Pizzeria Il Semaforo', 105, 50, { align: 'center' });
+        doc.save('menu-pizzeria-il-semaforo.pdf');
+      };
+    }
   }
 
   // Animazione al caricamento della pagina
