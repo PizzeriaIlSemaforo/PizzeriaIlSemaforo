@@ -527,6 +527,112 @@
       margin-left: 1rem;
     }
     
+    /* MODAL del Form - NASCOSTA inizialmente */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background: var(--white);
+      border-radius: 30px;
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow), 0 20px 40px rgba(198, 40, 40, 0.3);
+      animation: modalSlideIn 0.3s ease;
+    }
+    
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      color: var(--white);
+      border-radius: 30px 30px 0 0;
+    }
+    
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    
+    .modal-header i {
+      font-size: 2rem;
+    }
+    
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .close-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .modal-body {
+      padding: 2rem;
+    }
+    
+    .google-form-frame {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .form-badge {
+      display: inline-block;
+      background: rgba(198, 40, 40, 0.1);
+      color: var(--primary-color);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      border: 1px solid rgba(198, 40, 40, 0.2);
+    }
+    
+    .form-badge i {
+      margin-right: 0.3rem;
+    }
+    
     /* Footer */
     .main-footer {
       background-color: var(--secondary-color);
@@ -700,86 +806,34 @@
     
     /* Responsive */
     @media (max-width: 992px) {
-      h1 {
-        font-size: 3rem;
-      }
-      
-      h2 {
-        font-size: 2.2rem;
-      }
-      
-      .hero-content h1 {
-        font-size: 3.2rem;
-      }
-      
-      section {
-        padding: 4rem 0;
-      }
-      
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
+      h1 { font-size: 3rem; }
+      h2 { font-size: 2.2rem; }
+      .hero-content h1 { font-size: 3.2rem; }
+      section { padding: 4rem 0; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
     }
     
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-      
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.2rem;
-      }
-      
-      .navbar-brand {
-        font-size: 1.5rem;
-      }
-      
-      .hours-highlight {
-        font-size: 2rem;
-      }
-      
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.2rem; }
+      .navbar-brand { font-size: 1.5rem; }
+      .hours-highlight { font-size: 2rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      .modal-content { width: 95%; }
+      .modal-header h3 { font-size: 1.5rem; }
     }
     
     @media (max-width: 576px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      
-      .btn-primary, .btn-outline-primary {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.85rem;
-      }
-      
-      .hours-box {
-        padding: 2rem 1.5rem;
-      }
-      
-      .menu-card {
-        padding: 1.5rem;
-      }
-      
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .btn-primary, .btn-outline-primary { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
+      .hours-box { padding: 2rem 1.5rem; }
+      .menu-card { padding: 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .google-form-frame { height: 500px; }
     }
   </style>
 </head>
@@ -824,8 +878,8 @@
       <h1 class="animate__animated animate__fadeInUp">Pizzeria Il Semaforo</h1>
       <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Un'esperienza autentica di sapori tradizionali nel cuore di Campi Bisenzio</p>
       <div class="animate__animated animate__fadeInUp animate__delay-2s">
-        <!-- SOLO IL PULSANTE PRENOTA UN TAVOLO - NESSUNA MENZIONE DEL MENÙ -->
-        <a href="#contact" class="btn btn-primary">Prenota un Tavolo</a>
+        <!-- PULSANTE CHE APRE IL MODAL -->
+        <button onclick="openBookingModal()" class="btn btn-primary">Prenota un Tavolo</button>
       </div>
     </div>
   </div>
@@ -1110,7 +1164,7 @@
           </div>
         </div>
         
-        <!-- Recensione 5: Originale 1 -->
+        <!-- Recensione 5: Laura -->
         <div class="swiper-slide">
           <div class="testimonial-card">
             <div class="testimonial-text">
@@ -1135,7 +1189,7 @@
           </div>
         </div>
         
-        <!-- Recensione 6: Originale 2 -->
+        <!-- Recensione 6: Francesco -->
         <div class="swiper-slide">
           <div class="testimonial-card">
             <div class="testimonial-text">
@@ -1295,6 +1349,34 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- MODALE DI PRENOTAZIONE (NASCOSTA) -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-calendar-check me-2"></i>Prenota il tuo Tavolo</h3>
+      <button class="close-btn" onclick="closeBookingModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYLNlWhnFGSMxE7Sfzd-KNLvZm51Ro5aCQT3okDZD2yP6OHA/viewform?embedded=true" 
+              class="google-form-frame"
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              title="Modulo di prenotazione Pizzeria Il Semaforo">
+        Caricamento modulo di prenotazione...
+      </iframe>
+      <div class="text-center">
+        <span class="form-badge">
+          <i class="fas fa-info-circle"></i> Aperti Gio-Dom 19:00-23:00
+        </span>
+        <span class="form-badge ms-2">
+          <i class="fas fa-shield-alt"></i> Dati protetti
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1345,13 +1427,11 @@
       
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        // Aggiorna la classe active della navbar
         document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
           link.classList.remove('active');
         });
         this.classList.add('active');
         
-        // Scroll all'elemento
         window.scrollTo({
           top: targetElement.offsetTop - 80,
           behavior: 'smooth'
@@ -1360,313 +1440,62 @@
     });
   });
 
-  // Funzione per scaricare il PDF del menù in formato libro
+  // Funzioni per il modale
+  function openBookingModal() {
+    document.getElementById('bookingModal').classList.add('show');
+    document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina
+  }
+  
+  function closeBookingModal() {
+    document.getElementById('bookingModal').classList.remove('show');
+    document.body.style.overflow = 'auto'; // Riabilita lo scroll
+  }
+  
+  // Chiudi il modale cliccando fuori
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('bookingModal');
+    if (e.target === modal) {
+      closeBookingModal();
+    }
+  });
+  
+  // Chiudi con tasto ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeBookingModal();
+    }
+  });
+
+  // Funzione per scaricare il PDF del menù
   function downloadPDF() {
     if(confirm('Vuoi scaricare il menù in formato PDF?')) {
       const { jsPDF } = window.jspdf;
-      const doc = new jsPDF({
-        orientation: 'landscape',
-        unit: 'mm',
-        format: 'a4'
-      });
+      const doc = new jsPDF();
       
-      const pageWidth = doc.internal.pageSize.width;
-      const pageHeight = doc.internal.pageSize.height;
-      const margin = 20;
-      const contentWidth = pageWidth - 2 * margin;
+      doc.setFontSize(20);
+      doc.setTextColor(198, 40, 40);
+      doc.text('Pizzeria Il Semaforo - Menù', 20, 20);
       
-      // Funzione per aggiungere una pagina
-      function addNewPage() {
-        doc.addPage();
-        currentPage++;
-        yPos = margin;
-      }
+      doc.setFontSize(16);
+      doc.setTextColor(0, 0, 0);
+      doc.text('Menù Fisso - 20€', 20, 40);
+      doc.setFontSize(12);
+      doc.text('• Antipasto della Casa', 25, 50);
+      doc.text('• Giro Pizza No Stop', 25, 58);
+      doc.text('• Una bibita piccola (33cl)', 25, 66);
       
-      // Controllo pagina corrente
-      let currentPage = 1;
-      let yPos = margin;
+      doc.text('Dolci - €3,00', 20, 84);
+      doc.text('• Tiramisù Classico', 25, 94);
+      doc.text('• Panna Cotta ai Frutti di Bosco', 25, 102);
+      doc.text('• Torta della Nonna', 25, 110);
+      doc.text('• Cheesecake ai Frutti di Bosco', 25, 118);
+      doc.text('• Sorbetto al Limone', 25, 126);
       
-      // Copertina
-      // Logo
-      const logo = new Image();
-      logo.src = 'logo1.jpg';
-      
-      logo.onload = function() {
-        // Sfondo copertina
-        doc.setFillColor(198, 40, 40);
-        doc.rect(0, 0, pageWidth, pageHeight, 'F');
-        
-        // Logo al centro
-        const logoWidth = 60;
-        const logoHeight = 60;
-        const logoX = (pageWidth - logoWidth) / 2;
-        const logoY = 50;
-        doc.addImage(logo, 'JPEG', logoX, logoY, logoWidth, logoHeight);
-        
-        // Titolo
-        doc.setFontSize(32);
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
-        doc.text('MENÙ', pageWidth / 2, logoY + logoHeight + 30, { align: 'center' });
-        
-        doc.setFontSize(24);
-        doc.text('Pizzeria Il Semaforo', pageWidth / 2, logoY + logoHeight + 50, { align: 'center' });
-        
-        // Sottotitolo
-        doc.setFontSize(16);
-        doc.setTextColor(255, 255, 255, 0.8);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Tradizione e Qualità dal 2023', pageWidth / 2, logoY + logoHeight + 70, { align: 'center' });
-        
-        // Informazioni
-        doc.setFontSize(12);
-        doc.text('Via Palagetta, 50013 Campi Bisenzio (FI)', pageWidth / 2, pageHeight - 60, { align: 'center' });
-        doc.text('Tel: +39 340 304 6310', pageWidth / 2, pageHeight - 50, { align: 'center' });
-        doc.text('www.pizzeriailsemaforo.it', pageWidth / 2, pageHeight - 40, { align: 'center' });
-        
-        // Pagina 2: Menù
-        addNewPage();
-        
-        // Header pagina
-        doc.setFillColor(240, 240, 240);
-        doc.rect(0, 0, pageWidth, 40, 'F');
-        
-        // Numero pagina
-        doc.setFontSize(10);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`Pagina ${currentPage}`, pageWidth - margin, 15);
-        
-        // Titolo menù
-        doc.setFontSize(28);
-        doc.setTextColor(198, 40, 40);
-        doc.setFont('helvetica', 'bold');
-        doc.text('IL NOSTRO MENÙ', margin, 30);
-        
-        // Linea divisoria
-        doc.setDrawColor(198, 40, 40);
-        doc.setLineWidth(2);
-        doc.line(margin, 35, pageWidth - margin, 35);
-        
-        yPos = 50;
-        
-        // Sezione 1: Menù Fisso
-        doc.setFontSize(20);
-        doc.setTextColor(0, 0, 0);
-        doc.setFont('helvetica', 'bold');
-        doc.text('MENÙ FISSO - 20€', margin, yPos);
-        yPos += 15;
-        
-        doc.setFontSize(12);
-        doc.setTextColor(100, 100, 100);
-        doc.setFont('helvetica', 'normal');
-        const fixedMenu = [
-          '• Antipasto della Casa',
-          '• Giro Pizza No Stop',
-          '• Una bibita piccola (33cl) a persona'
-        ];
-        
-        fixedMenu.forEach(item => {
-          if (yPos > pageHeight - margin) {
-            addNewPage();
-            yPos = margin + 30;
-          }
-          doc.text(item, margin + 5, yPos);
-          yPos += 8;
-        });
-        
-        yPos += 15;
-        
-        // Sezione 2: Dettagli
-        if (yPos > pageHeight - 50) {
-          addNewPage();
-          yPos = margin + 30;
-        }
-        
-        doc.setFontSize(16);
-        doc.setTextColor(0, 0, 0);
-        doc.setFont('helvetica', 'bold');
-        doc.text('DETTAGLI', margin, yPos);
-        yPos += 12;
-        
-        doc.setFontSize(11);
-        doc.setTextColor(100, 100, 100);
-        doc.setFont('helvetica', 'normal');
-        
-        const details = [
-          'Antipasto della Casa: Una selezione dei migliori salumi toscani',
-          'accompagnati da schiacciata calda appena sfornata e verdure sott\'olio.',
-          '',
-          'Giro Pizza No Stop: Un viaggio attraverso i sapori della nostra',
-          'tradizione. Richiedi al cameriere i gusti disponibili.',
-          '',
-          'Bevande incluse: Coca-Cola, Fanta, Sprite, Acqua Naturale/Frizzante (33cl)'
-        ];
-        
-        details.forEach(line => {
-          if (yPos > pageHeight - margin) {
-            addNewPage();
-            yPos = margin + 30;
-          }
-          doc.text(line, margin, yPos);
-          yPos += 7;
-        });
-        
-        // Pagina 3: Dolci
-        addNewPage();
-        
-        // Header pagina
-        doc.setFillColor(240, 240, 240);
-        doc.rect(0, 0, pageWidth, 40, 'F');
-        
-        // Numero pagina
-        doc.setFontSize(10);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`Pagina ${currentPage}`, pageWidth - margin, 15);
-        
-        // Titolo dolci
-        doc.setFontSize(28);
-        doc.setTextColor(198, 40, 40);
-        doc.setFont('helvetica', 'bold');
-        doc.text('I NOSTRI DOLCI', margin, 30);
-        
-        // Linea divisoria
-        doc.setDrawColor(198, 40, 40);
-        doc.setLineWidth(2);
-        doc.line(margin, 35, pageWidth - margin, 35);
-        
-        yPos = 50;
-        
-        // Dolci con prezzi - TUTTI A €3,00
-        const desserts = [
-          { name: 'Tiramisù Classico', price: '€ 3,00' },
-          { name: 'Panna Cotta ai Frutti di Bosco', price: '€ 3,00' },
-          { name: 'Torta della Nonna', price: '€ 3,00' },
-          { name: 'Cheesecake ai Frutti di Bosco', price: '€ 3,00' },
-          { name: 'Sorbetto al Limone', price: '€ 3,00' }
-        ];
-        
-        desserts.forEach((dessert, index) => {
-          if (yPos > pageHeight - margin) {
-            addNewPage();
-            yPos = margin + 30;
-          }
-          
-          // Rettangolo per ogni dolce
-          const itemHeight = 25;
-          const isEven = index % 2 === 0;
-          
-          if (isEven) {
-            doc.setFillColor(250, 250, 250);
-          } else {
-            doc.setFillColor(255, 255, 255);
-          }
-          
-          doc.rect(margin, yPos - 8, contentWidth, itemHeight, 'F');
-          
-          // Nome dolce
-          doc.setFontSize(14);
-          doc.setTextColor(0, 0, 0);
-          doc.setFont('helvetica', 'bold');
-          doc.text(dessert.name, margin + 10, yPos);
-          
-          // Prezzo - TUTTI €3,00
-          doc.setFontSize(16);
-          doc.setTextColor(198, 40, 40);
-          doc.text(dessert.price, pageWidth - margin - 20, yPos, { align: 'right' });
-          
-          // Linea divisoria
-          doc.setDrawColor(220, 220, 220);
-          doc.setLineWidth(0.5);
-          doc.line(margin, yPos + itemHeight - 8, pageWidth - margin, yPos + itemHeight - 8);
-          
-          yPos += itemHeight;
-        });
-        
-        yPos += 15;
-        
-        // Nota
-        if (yPos > pageHeight - 30) {
-          addNewPage();
-          yPos = margin + 30;
-        }
-        
-        doc.setFontSize(10);
-        doc.setTextColor(150, 150, 150);
-        doc.setFont('helvetica', 'italic');
-        doc.text('* Tutti i dolci al prezzo speciale di € 3,00 ciascuno', margin, yPos);
-        yPos += 6;
-        doc.text('* I dolci non sono inclusi nel menù fisso di 20€', margin, yPos);
-        yPos += 6;
-        doc.text('** Prezzi possono subire variazioni', margin, yPos);
-        
-        // Pagina 4: Informazioni e contatti
-        addNewPage();
-        
-        // Sfondo rosso per ultima pagina
-        doc.setFillColor(198, 40, 40);
-        doc.rect(0, 0, pageWidth, pageHeight, 'F');
-        
-        // Titolo
-        doc.setFontSize(28);
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
-        doc.text('INFORMAZIONI', pageWidth / 2, 60, { align: 'center' });
-        
-        // Linea divisoria bianca
-        doc.setDrawColor(255, 255, 255);
-        doc.setLineWidth(1);
-        doc.line(margin, 70, pageWidth - margin, 70);
-        
-        yPos = 90;
-        
-        // Informazioni di contatto
-        const contactInfo = [
-          { icon: '📍', text: 'Via Palagetta, 50013 Campi Bisenzio (FI)' },
-          { icon: '📞', text: '+39 340 304 6310' },
-          { icon: '✉️', text: 'ilsemaforo.pizzeria@gmail.com' },
-          { icon: '🕒', text: 'Giovedì - Domenica: 19:00 - 23:00' },
-          { icon: '🎵', text: 'Musica dal vivo: Venerdì e Domenica' },
-          { icon: '💰', text: 'Menù Fisso: 20€ (bibita inclusa)' }
-        ];
-        
-        doc.setFontSize(14);
-        contactInfo.forEach(info => {
-          doc.text(info.icon + ' ' + info.text, pageWidth / 2, yPos, { align: 'center' });
-          yPos += 15;
-        });
-        
-        yPos += 20;
-        
-        // Social media
-        doc.setFontSize(16);
-        doc.text('Seguici sui social:', pageWidth / 2, yPos, { align: 'center' });
-        yPos += 15;
-        
-        doc.setFontSize(14);
-        doc.text('Facebook | Instagram | TikTok', pageWidth / 2, yPos, { align: 'center' });
-        
-        // Footer
-        doc.setFontSize(10);
-        doc.setTextColor(255, 255, 255, 0.7);
-        doc.text('P.IVA: 07270540482', pageWidth / 2, pageHeight - 30, { align: 'center' });
-        doc.text('www.pizzeriailsemaforo.it', pageWidth / 2, pageHeight - 20, { align: 'center' });
-        doc.text(`Menu aggiornato al ${new Date().toLocaleDateString('it-IT')}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
-        
-        // Salva il PDF
-        doc.save(`menu-pizzeria-il-semaforo-${new Date().toISOString().split('T')[0]}.pdf`);
-      };
-      
-      logo.onerror = function() {
-        // Se il logo non carica, usa testo alternativo
-        doc.setFontSize(24);
-        doc.setTextColor(198, 40, 40);
-        doc.text('Pizzeria Il Semaforo', 105, 50, { align: 'center' });
-        doc.save('menu-pizzeria-il-semaforo.pdf');
-      };
+      doc.save('menu-pizzeria-il-semaforo.pdf');
     }
   }
 
-  // Animazione al caricamento della pagina
+  // Animazione pagina
   window.addEventListener('load', function() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
