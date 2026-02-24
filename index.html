@@ -26,9 +26,6 @@
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-  <!-- jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
   <style>
     :root {
       --primary-color: #c62828;
@@ -50,12 +47,20 @@
       box-sizing: border-box;
     }
     
+    html {
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+    
     body {
       font-family: 'Montserrat', sans-serif;
       color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
       background-color: var(--white);
+      opacity: 1 !important;
+      transition: none !important;
     }
     
     h1, h2, h3, h4, h5 {
@@ -527,7 +532,7 @@
       margin-left: 1rem;
     }
     
-    /* MODAL del Form - NASCOSTA inizialmente */
+    /* MODAL del Form - SINGOLO SCROLL FLUIDO */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -550,12 +555,12 @@
     
     .modal-content {
       background: var(--white);
-      border-radius: 30px;
+      border-radius: 12px;
       width: 90%;
       max-width: 900px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
+      max-height: 85vh; /* Ridotto leggermente per migliorare l'usabilità */
+      display: flex;
+      flex-direction: column;
       box-shadow: var(--shadow), 0 20px 40px rgba(198, 40, 40, 0.3);
       animation: modalSlideIn 0.3s ease;
     }
@@ -572,32 +577,34 @@
     }
     
     .modal-header {
-      padding: 1.5rem;
+      padding: 1rem 1.2rem;
       border-bottom: 1px solid #eee;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
       color: var(--white);
-      border-radius: 30px 30px 0 0;
+      border-radius: 12px 12px 0 0;
+      flex-shrink: 0; /* Impedisce che l'header si restringa */
     }
     
     .modal-header h3 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
     
     .modal-header i {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     
     .close-btn {
       background: none;
       border: none;
       color: var(--white);
-      font-size: 2rem;
+      font-size: 1.8rem;
       cursor: pointer;
       transition: var(--transition);
+      line-height: 1;
     }
     
     .close-btn:hover {
@@ -605,27 +612,51 @@
     }
     
     .modal-body {
-      padding: 2rem;
+      padding: 1.2rem;
+      overflow-y: auto; /* SINGOLO SCROLL - solo qui si può scorrere */
+      -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
+      scroll-behavior: smooth;
+      flex-grow: 1; /* Occupa lo spazio rimanente */
+    }
+    
+    /* Stile personalizzato per la scrollbar (opzionale, per migliorare l'aspetto) */
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .modal-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: 10px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-color);
     }
     
     .google-form-frame {
       width: 100%;
-      height: 600px;
+      height: 800px; /* Altezza maggiore per garantire che tutto il contenuto sia visibile con lo scroll */
       border: none;
-      border-radius: 15px;
+      border-radius: 8px;
       overflow: hidden;
       box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+      display: block; /* Rimuove eventuali spazi bianchi */
     }
     
     .form-badge {
       display: inline-block;
       background: rgba(198, 40, 40, 0.1);
       color: var(--primary-color);
-      padding: 0.3rem 1rem;
+      padding: 0.2rem 0.8rem;
       border-radius: 50px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       border: 1px solid rgba(198, 40, 40, 0.2);
     }
     
@@ -822,7 +853,7 @@
       .hours-highlight { font-size: 2rem; }
       .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
       .modal-content { width: 95%; }
-      .modal-header h3 { font-size: 1.5rem; }
+      .modal-header h3 { font-size: 1.3rem; }
     }
     
     @media (max-width: 576px) {
@@ -833,7 +864,18 @@
       .hours-box { padding: 2rem 1.5rem; }
       .menu-card { padding: 1.5rem; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .google-form-frame { height: 500px; }
+      .modal-content {
+        max-height: 80vh;
+      }
+      .google-form-frame {
+        height: 700px;
+      }
+      .modal-header {
+        padding: 0.8rem 1rem;
+      }
+      .modal-body {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -1002,11 +1044,7 @@
         </p>
       </div>
       
-      <div class="text-center mt-5">
-        <button class="btn btn-primary" onclick="downloadPDF()">
-          <i class="fas fa-download me-2"></i> Scarica Menù in PDF
-        </button>
-      </div>
+      <!-- PULSANTE SCARICA PDF RIMOSSO -->
     </div>
   </div>
 </section>
@@ -1349,7 +1387,7 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- MODALE DI PRENOTAZIONE (NASCOSTA) -->
+<!-- MODALE DI PRENOTAZIONE - SINGOLO SCROLL -->
 <div class="modal-overlay" id="bookingModal">
   <div class="modal-content">
     <div class="modal-header">
@@ -1442,8 +1480,17 @@
 
   // Funzioni per il modale
   function openBookingModal() {
-    document.getElementById('bookingModal').classList.add('show');
+    const modal = document.getElementById('bookingModal');
+    modal.classList.add('show');
     document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina
+    
+    // Resetta lo scroll del modal-body all'apertura (opzionale)
+    setTimeout(() => {
+      const modalBody = document.querySelector('.modal-body');
+      if (modalBody) {
+        modalBody.scrollTop = 0;
+      }
+    }, 50);
   }
   
   function closeBookingModal() {
@@ -1466,44 +1513,10 @@
     }
   });
 
-  // Funzione per scaricare il PDF del menù
-  function downloadPDF() {
-    if(confirm('Vuoi scaricare il menù in formato PDF?')) {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      
-      doc.setFontSize(20);
-      doc.setTextColor(198, 40, 40);
-      doc.text('Pizzeria Il Semaforo - Menù', 20, 20);
-      
-      doc.setFontSize(16);
-      doc.setTextColor(0, 0, 0);
-      doc.text('Menù Fisso - 20€', 20, 40);
-      doc.setFontSize(12);
-      doc.text('• Antipasto della Casa', 25, 50);
-      doc.text('• Giro Pizza No Stop', 25, 58);
-      doc.text('• Una bibita piccola (33cl)', 25, 66);
-      
-      doc.text('Dolci - €3,00', 20, 84);
-      doc.text('• Tiramisù Classico', 25, 94);
-      doc.text('• Panna Cotta ai Frutti di Bosco', 25, 102);
-      doc.text('• Torta della Nonna', 25, 110);
-      doc.text('• Cheesecake ai Frutti di Bosco', 25, 118);
-      doc.text('• Sorbetto al Limone', 25, 126);
-      
-      doc.save('menu-pizzeria-il-semaforo.pdf');
-    }
-  }
+  // RIMOSSA FUNZIONE downloadPDF
 
-  // Animazione pagina
-  window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-      document.body.style.opacity = '1';
-    }, 100);
-  });
+  // Rimuovi animazione opacità che causava problemi di scroll
+  // (già rimosso con body opacity:1)
 </script>
 </body>
 </html>
