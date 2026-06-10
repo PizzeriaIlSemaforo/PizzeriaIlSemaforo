@@ -1,4 +1,4 @@
-/* CSS Professionale per Pizzeria Il Semaforo - Festa dell'Unità */
+/* CSS Professionale per Pizzeria Il Semaforo */
 
 :root {
   --primary: #c62828;
@@ -88,8 +88,6 @@ h1, h2, h3, h4, h5 {
   font-family: 'Playfair Display', serif;
   font-weight: 800;
   font-size: 1.8rem;
-  text-decoration: none;
-  color: var(--dark);
 }
 .navbar-logo {
   width: 40px;
@@ -104,8 +102,6 @@ h1, h2, h3, h4, h5 {
   margin: 0 10px;
   position: relative;
   padding: 5px 0 !important;
-  text-decoration: none;
-  cursor: pointer;
 }
 .nav-link::after {
   content: '';
@@ -126,7 +122,7 @@ h1, h2, h3, h4, h5 {
   color: var(--primary) !important;
 }
 
-/* Hero Section */
+/* Hero Section - CORRETTO con immagine pizzeria.jpg */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -175,8 +171,6 @@ h1, h2, h3, h4, h5 {
   border: 1px solid rgba(255, 255, 255, 0.3);
   font-weight: 500;
 }
-
-/* Hero Wave - versione migliorata */
 .hero-wave {
   position: absolute;
   bottom: 0;
@@ -187,13 +181,8 @@ h1, h2, h3, h4, h5 {
 }
 .hero-wave svg {
   width: 100%;
-  height: 70px;
-  fill: #ffffff;
-}
-@media (max-width: 768px) {
-  .hero-wave svg {
-    height: 40px;
-  }
+  height: 100px;
+  fill: var(--white);
 }
 
 /* About Section */
@@ -336,13 +325,13 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 20px;
 }
 .menu-item h4 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 5px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 .menu-price {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary);
 }
@@ -398,7 +387,7 @@ h1, h2, h3, h4, h5 {
   transform: scale(1.1);
 }
 
-/* Testimonials Section */
+/* Testimonials Section - MIGLIORATA */
 .testimonials-section {
   padding: 100px 0;
   background: var(--white);
@@ -499,7 +488,7 @@ h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
-/* Social Links */
+/* Social Links - CORRETTO senza sfondo */
 .social-links {
   display: flex;
   gap: 15px;
@@ -585,7 +574,6 @@ h1, h2, h3, h4, h5 {
   color: #aaa;
   text-decoration: none;
   transition: var(--transition);
-  cursor: pointer;
 }
 .footer-links a:hover {
   color: var(--primary);
