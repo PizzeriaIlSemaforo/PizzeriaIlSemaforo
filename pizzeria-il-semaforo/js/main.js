@@ -1,6 +1,6 @@
-// JavaScript per Pizzeria Il Semaforo - Festa dell'Unità 11-21 Giugno
+// JavaScript per Pizzeria Il Semaforo
 
-// Pagine speciali (Chi Siamo e Galleria) - aggiornate per Festa dell'Unità
+// Pagine speciali (Chi Siamo e Galleria) - si aprono come pagine separate
 const specialPages = {
     about: `
         <section class="about-section" id="about">
@@ -19,20 +19,20 @@ const specialPages = {
                         <div class="about-content">
                             <span class="section-subtitle">La Nostra Storia</span>
                             <h2 class="section-title">Un Sogno di Famiglia Diventato Realtà</h2>
-                            <p class="about-text">Circa un anno fa, la nostra trattoria è nata da un sogno condiviso da una famiglia molto unita. Provenivamo da un altro settore, ma la nostra passione per la cucina e l'amore per la tradizione ci hanno spinti a intraprendere questa nuova avventura.</p>
+                            <p class="about-text">Circa un anno fa, la nostra pizzeria è nata da un sogno condiviso da una famiglia molto unita. Provenivamo da un altro settore, ma la nostra passione per la cucina e l'amore per la tradizione ci hanno spinti a intraprendere questa nuova avventura.</p>
                             <p class="about-text">Non è stato un percorso facile; ci sono stati sacrifici, lunghe giornate di lavoro e momenti di grande impegno da parte di tutti noi, dai ragazzi ai cuochi. Tuttavia, con determinazione e tanto lavoro, siamo riusciti a trasformare il nostro sogno in realtà.</p>
                             <div class="about-stats">
                                 <div class="stat-item">
-                                    <span class="stat-number">15+</span>
-                                    <span class="stat-label">Piatti Tipici</span>
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">Tipi di Pizza</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">100%</span>
                                     <span class="stat-label">Familiare</span>
                                 </div>
                                 <div class="stat-item">
-                                    <span class="stat-number">15€</span>
-                                    <span class="stat-label">Offerta Festa</span>
+                                    <span class="stat-number">20€</span>
+                                    <span class="stat-label">Menù Fisso</span>
                                 </div>
                             </div>
                         </div>
@@ -47,18 +47,18 @@ const specialPages = {
                     <div class="col-md-6 col-lg-3">
                         <div class="info-card">
                             <div class="info-icon"><i class="fas fa-clock"></i></div>
-                            <h3>Orari Festa</h3>
-                            <p>11-21 Giugno</p>
-                            <p class="info-highlight">19:00 - 01:00</p>
+                            <h3>Orari di Apertura</h3>
+                            <p>Giovedì - Domenica</p>
+                            <p class="info-highlight">19:00 - 23:00</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="info-card">
                             <div class="info-icon"><i class="fas fa-euro-sign"></i></div>
-                            <h3>Menù Completo</h3>
-                            <p>Antipasti, Primi, Secondi</p>
-                            <p class="info-highlight">Da €4,50</p>
-                            <small>Piatti della tradizione</small>
+                            <h3>Menù Fisso</h3>
+                            <p>Antipasto + Giro Pizza</p>
+                            <p class="info-highlight">20€</p>
+                            <small>Include 1 bibita 33cl</small>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
@@ -88,7 +88,7 @@ const specialPages = {
                 <div class="section-header text-center">
                     <span class="section-subtitle">I Nostri Scatti</span>
                     <h2 class="section-title">Galleria</h2>
-                    <p class="section-description">Momenti di convivialità e sapori nel nostro locale durante la Festa dell'Unità</p>
+                    <p class="section-description">Momenti di convivialità e sapori nel nostro locale</p>
                 </div>
                 
                 <div class="gallery-grid">
