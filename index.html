@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzeria Il Semaforo | Festa dell'Unità 11-21 Giugno</title>
+  <meta name="description" content="Trattoria e Pizzeria Il Semaforo a Campi Bisenzio. Festa dell'Unità dall'11 al 21 giugno con menù completo e musica dal vivo!">
+  
+  <link rel="icon" type="image/x-icon" href="images/logo1.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* TEMA FESTA DELL'UNITÀ */
+    .festa-top-bar {
+      background: linear-gradient(90deg, #cc0000 0%, #cc0000 33%, #ffffff 33%, #ffffff 66%, #009900 66%, #009900 100%);
+      padding: 8px 0;
+      position: relative;
+      z-index: 1001;
+    }
+    .festa-top-bar .container { text-align: center; color: white; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); font-size: 14px; }
+    .festa-countdown { background: rgba(0,0,0,0.8); display: inline-block; padding: 3px 12px; border-radius: 50px; margin-left: 12px; font-size: 0.8rem; }
+    .event-badge { animation: pulseEvent 1.5s infinite; }
+    @keyframes pulseEvent { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(204,0,0,0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(204,0,0,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(204,0,0,0); } }
+    
+    /* Hero Wave migliorata */
+    .hero-wave svg { width: 100%; height: 70px; fill: #ffffff; }
+    @media (max-width: 768px) { .hero-wave svg { height: 40px; } }
+    
+    /* Fix per navbar */
+    .navbar { top: 46px; }
+    @media (max-width: 768px) { .navbar { top: 68px; } .festa-top-bar .container { font-size: 11px; } .festa-countdown { display: block; margin-left: 0; margin-top: 4px; } }
+    
+    /* Stile menu card */
+    .menu-category-card { margin-bottom: 25px; }
+  </style>
+</head>
+<body>
+
+<!-- BARRA FESTA DELL'UNITÀ -->
+<div class="festa-top-bar">
+  <div class="container">
+    <i class="fas fa-flag-checkered me-2"></i>
+    <strong>🎉 FESTA DELL'UNITÀ 🎉</strong> 11 - 21 GIUGNO 2026
+    <span class="festa-countdown"><i class="fas fa-hourglass-half"></i> Inizia tra <span id="countdownDays">--</span>g</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#" id="home-link">
+      <img src="images/logo1.jpg" alt="Logo" class="navbar-logo">
+      <span>Il <span class="text-primary">Semaforo</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#" data-page="home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="about">Chi Siamo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="menu">Menù</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="gallery">Galleria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="reviews">Recensioni</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-page="contact">Contatti</a></li>
+      </ul>
+      <button class="btn btn-primary ms-lg-3 event-badge" onclick="openBookingModal()">
+        <i class="fas fa-calendar-check me-2"></i>Prenota
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+  
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="row min-vh-100 align-items-center">
+        <div class="col-lg-8 text-white">
+          <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 20px; margin-bottom: 20px; display: inline-block;">
+            <h3 style="margin:0; font-size: 1.3rem;"><i class="fas fa-calendar-alt me-2"></i>📅 11 - 21 GIUGNO 2026 📅</h3>
+          </div>
+          <h1 class="hero-title">Festa dell'Unità <span class="text-primary">da Noi!</span></h1>
+          <p class="hero-subtitle">Dall'11 al 21 giugno, ti aspettiamo con il nostro menù completo e tanto divertimento!</p>
+          <div class="hero-features">
+            <span><i class="fas fa-utensils me-2"></i>Antipasti Toscani</span>
+            <span><i class="fas fa-music me-2"></i>Musica dal Vivo</span>
+            <span><i class="fas fa-wine-bottle me-2"></i>Vino della Casa</span>
+          </div>
+          <div class="hero-buttons mt-4">
+            <button class="btn btn-primary btn-lg" onclick="openBookingModal()">
+              <i class="fas fa-calendar-check me-2"></i>Prenota il tuo tavolo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,64L80,58.7C160,53,320,43,480,48C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <div id="home-sections">
+    
+    <!-- BANNER FESTA -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="info-card" style="background: linear-gradient(135deg, #cc000010, #00990010); border: 2px dashed var(--primary);">
+            <i class="fas fa-ticket-alt" style="font-size: 2rem; color: var(--primary);"></i>
+            <h3 class="mt-2">🎟️ FESTA DELL'UNITÀ 🎟️</h3>
+            <p><strong>Tessera associativa:</strong> offerta libera (minimo 5€) - Ricavato in beneficenza</p>
+            <p><strong>📅 11 - 21 GIUGNO 2026 | Orario: 19:00 - 01:00</strong></p>
+            <button class="btn btn-primary mt-2" onclick="openBookingModal()">Prenota il tuo tavolo →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENÙ COMPLETO -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Il Nostro Menù</span>
+          <h2 class="section-title">Menù Festa dell'Unità</h2>
+          <p class="section-description">Piatti della tradizione toscana, ingredienti freschi e sapori autentici</p>
+        </div>
+
+        <!-- ANTIPASTI -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-utensils text-primary me-2"></i>Antipasti</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Antipasto Toscano</h4><span class="menu-price">€ 8,00</span></div><p class="text-muted small">Salame, Finocchiona, Crudo, Pecorino, Crostino al Pomodoro</p></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Polenta al Forno con Funghi</h4><span class="menu-price">€ 4,50</span></div><p class="text-muted small">Funghi misti</p></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Crostini Toscani</h4><span class="menu-price">€ 5,00</span></div><p class="text-muted small">Fegatini, Salsiccia e Stracchini, Lardo di Colonnata</p></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Prosciutto e Melone</h4><span class="menu-price">€ 6,50</span></div><p class="text-muted small">Prosciutto stagionato</p></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Polenta Fritta</h4><span class="menu-price">€ 3,50</span></div></div>
+        </div>
+
+        <!-- PRIMI -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-pasta text-primary me-2"></i>Primi Piatti</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Penne alla Pecora</h4><span class="menu-price">€ 8,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Tortiglioni alla Carrettiera</h4><span class="menu-price">€ 4,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Tagliatelle al Ragù</h4><span class="menu-price">€ 5,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Tortelli Ricotta e Spinaci</h4><span class="menu-price">€ 6,50</span></div><p class="text-muted small">Burro e Salvia</p></div>
+        </div>
+
+        <!-- SECONDI -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-grill text-primary me-2"></i>Secondi Piatti</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Grigliata Mista <span class="badge bg-primary">Specialità</span></h4><span class="menu-price">€ 15,00</span></div><p class="text-muted small">Pollo, Rosticciana, Salsiccia</p></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Galletto al Mattone</h4><span class="menu-price">€ 12,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Rosticciana</h4><span class="menu-price">€ 10,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Pecora in Umido</h4><span class="menu-price">€ 15,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Salsiccia alla Griglia</h4><span class="menu-price">€ 9,00</span></div></div>
+        </div>
+
+        <!-- CONTORNI -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-leaf text-primary me-2"></i>Contorni</h3>
+          <div class="row">
+            <div class="col-4"><div class="menu-item"><h4>Fagioli all'Olio</h4><span class="menu-price">€ 4,00</span></div></div>
+            <div class="col-4"><div class="menu-item"><h4>Patate Arrosto</h4><span class="menu-price">€ 4,00</span></div></div>
+            <div class="col-4"><div class="menu-item"><h4>Insalata Mista</h4><span class="menu-price">€ 4,00</span></div></div>
+          </div>
+        </div>
+
+        <!-- FRITTURA MARE -->
+        <div class="menu-category-card" style="background: linear-gradient(135deg, #fff, #fef5f0);">
+          <h3><i class="fas fa-fish text-primary me-2"></i>Frittura di Mare</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Calamari e Gamberi con verdure e patate fritte <span class="badge bg-warning text-dark">Venerdì su prenotazione</span></h4><span class="menu-price">€ 20,00</span></div></div>
+        </div>
+
+        <!-- BEVANDE -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-wine-bottle text-primary me-2"></i>Bevande</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Acqua Naturale/Gassata (1 Lt)</h4><span class="menu-price">€ 2,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Acqua Naturale/Gassata (0.5 Lt)</h4><span class="menu-price">€ 1,30</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Lattine Coca Cola / Fanta (0.33)</h4><span class="menu-price">€ 2,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Lattine Thè Pesca/Limone (0.33)</h4><span class="menu-price">€ 3,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Birra Nazionale Spina Piccola (0.20)</h4><span class="menu-price">€ 3,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Birra Nazionale Spina Media (0.40)</h4><span class="menu-price">€ 5,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Vino Rosso (Bottiglia 0.75)</h4><span class="menu-price">€ 7,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Vino Bianco Frizzante (Brocca 0.50)</h4><span class="menu-price">€ 6,00</span></div></div>
+        </div>
+
+        <!-- DOLCI E CAFFÈ -->
+        <div class="menu-category-card">
+          <h3><i class="fas fa-ice-cream text-primary me-2"></i>Frutta, Gelati & Caffè</h3>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Cocomero</h4><span class="menu-price">€ 2,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Macedonia di Frutta</h4><span class="menu-price">€ 3,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Macedonia con Gelato (Crema/Cioccolato)</h4><span class="menu-price">€ 5,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Macedonia con Panna</h4><span class="menu-price">€ 4,50</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Caffè Espresso</h4><span class="menu-price">€ 2,00</span></div></div>
+          <div class="menu-item"><div class="d-flex justify-content-between flex-wrap"><h4>Coperto e Pane</h4><span class="menu-price">€ 2,00</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO CARDS -->
+    <section class="info-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3"><div class="info-card"><div class="info-icon"><i class="fas fa-clock"></i></div><h3>Orari Festa</h3><p>11-21 Giugno</p><p class="info-highlight">19:00 - 01:00</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="info-card"><div class="info-icon"><i class="fas fa-music"></i></div><h3>Musica dal Vivo</h3><p>Venerdì e Domenica</p><p class="info-highlight">Karaoke & Live</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="info-card"><div class="info-icon"><i class="fas fa-fish"></i></div><h3>Frittura di Mare</h3><p>Solo Venerdì</p><p class="info-highlight">Su prenotazione</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="info-card"><div class="info-icon"><i class="fas fa-phone-alt"></i></div><h3>Prenotazioni</h3><p>Chiama o WhatsApp</p><p class="info-highlight">340 304 6310</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="testimonials-section" id="reviews">
+      <div class="container">
+        <div class="text-center"><span class="section-subtitle">Cosa Dicono di Noi</span><h2 class="section-title">Recensioni</h2></div>
+        <div class="row g-4">
+          <div class="col-md-4"><div class="testimonial-card"><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Cibo e accoglienza meravigliosi..sembra di essere all'interno della loro famiglia quando sei lì!"</p><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div><h5>Valentina</h5><span>Cliente</span></div></div></div></div>
+          <div class="col-md-4"><div class="testimonial-card"><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Locale accogliente e personale gentilissimo. La grigliata mista è fantastica!"</p><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div><h5>Laura Verdi</h5><span>Cliente</span></div></div></div></div>
+          <div class="col-md-4"><div class="testimonial-card"><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Rapporto qualità-prezzo ottimo. La pecora in umido è spettacolare!"</p><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div><h5>Marco</h5><span>Cliente</span></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="text-center"><span class="section-subtitle">Vieni a Trovarci</span><h2 class="section-title">Contatti e Mappa</h2></div>
+        <div class="row">
+          <div class="col-lg-6 mb-4"><div class="contact-info-card"><h3>Informazioni</h3><ul class="contact-list"><li><i class="fas fa-map-marker-alt"></i><div><strong>Indirizzo</strong><p>Via Palagetta, 50013 Campi Bisenzio (FI)</p></div></li><li><i class="fas fa-phone"></i><div><strong>Telefono / WhatsApp</strong><p>+39 340 304 6310</p></div></li><li><i class="fas fa-envelope"></i><div><strong>Email</strong><p>ilsemaforo.pizzeria@gmail.com</p></div></li><li><i class="fas fa-clock"></i><div><strong>Orari Festa dell'Unità</strong><p>11-21 Giugno: 19:00 - 01:00</p></div></li></ul><div class="social-links"><a href="https://www.facebook.com/share/1C1YCfUDes/" target="_blank"><img src="images/facebook-logo.png" width="32" alt="Facebook"></a><a href="https://www.instagram.com/pizzeriailsemaforo" target="_blank"><img src="images/Instagram-logo.png" width="32" alt="Instagram"></a><a href="https://www.tiktok.com/@ilsemaforopizzeria" target="_blank"><img src="images/tiktok-logo.png" width="32" alt="TikTok"></a></div></div></div>
+          <div class="col-lg-6"><div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1462.4312215232844!2d11.1203234!3d43.8093687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a59b7d8859209%3A0x98788d2f085c6016!2sPizzeria%20Il%20Semaforo!5e0!3m2!1sit!2sit!4v1695151262428!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4"><div class="footer-logo"><img src="images/logo1.jpg" alt="Logo"><span>Il Semaforo</span></div><p class="footer-text">Trattoria e Pizzeria familiare con passione per la tradizione toscana.</p><div class="social-links"><a href="https://www.facebook.com/share/1C1YCfUDes/" target="_blank"><img src="images/facebook-logo.png" width="30" alt="Facebook"></a><a href="https://www.instagram.com/pizzeriailsemaforo" target="_blank"><img src="images/Instagram-logo.png" width="30" alt="Instagram"></a><a href="https://www.tiktok.com/@ilsemaforopizzeria" target="_blank"><img src="images/tiktok-logo.png" width="30" alt="TikTok"></a></div></div>
+      <div class="col-lg-4 mb-4"><h4 class="footer-title">Link Rapidi</h4><ul class="footer-links"><li><a href="#" data-page="home">Home</a></li><li><a href="#" data-page="about">Chi Siamo</a></li><li><a href="#" data-page="menu">Menù</a></li><li><a href="#" data-page="gallery">Galleria</a></li><li><a href="#" data-page="reviews">Recensioni</a></li><li><a href="#" data-page="contact">Contatti</a></li></ul></div>
+      <div class="col-lg-4"><h4 class="footer-title">Contatti</h4><ul class="footer-contact"><li><i class="fas fa-phone"></i> +39 340 304 6310</li><li><i class="fas fa-envelope"></i> ilsemaforo.pizzeria@gmail.com</li><li><i class="fas fa-map-marker-alt"></i> Via Palagetta, Campi Bisenzio</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Pizzeria Il Semaforo - P.IVA: 07270540482</p><p><a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a></p></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/393403046310?text=Ciao!%20Vorrei%20prenotare%20per%20la%20Festa%20dell'Unit%C3%A0" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- MODALE PRENOTAZIONE -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-calendar-check me-2"></i>Prenota per la Festa dell'Unità</h3>
+      <button class="close-btn" onclick="closeBookingModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYLNlWhnFGSMxE7Sfzd-KNLvZm51Ro5aCQT3okDZD2yP6OHA/viewform?usp=dialog" class="google-form-frame" frameborder="0" title="Modulo prenotazione"></iframe>
+      <div class="form-badges mt-3 text-center">
+        <span class="badge bg-primary"><i class="fas fa-clock me-1"></i>Orario: 19:00-01:00</span>
+        <span class="badge bg-primary"><i class="fas fa-ticket-alt me-1"></i>Offerta solidale</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Countdown Festa dell'Unità
+  function updateCountdown() {
+    const startDate = new Date(2026, 5, 11);
+    const now = new Date();
+    const diff = startDate - now;
+    if (diff > 0) {
+      document.getElementById('countdownDays').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+    } else {
+      const countdownSpan = document.querySelector('.festa-countdown');
+      if (countdownSpan) countdownSpan.innerHTML = '<i class="fas fa-music"></i> IN CORSO! 🎉';
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 86400000);
+  
+  // Fix per i link del footer (assicura che loadPage esista)
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.footer-links a[data-page]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var pageId = this.getAttribute('data-page');
+        if (typeof loadPage !== 'undefined' && loadPage) {
+          loadPage(pageId);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
